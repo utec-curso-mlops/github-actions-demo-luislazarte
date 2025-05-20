@@ -11,7 +11,7 @@ jobs:
               with:
                 python-version: 3.12
             - name: Verify Python
-              run: pyton --version
+              run: python --version
             - name: Test Code
               run: echo "Testing code for model"
 
