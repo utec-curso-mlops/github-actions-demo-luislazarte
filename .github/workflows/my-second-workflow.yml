@@ -1,5 +1,5 @@
 name: My second Workflow
-on: [workflow_dispatch,push]
+on: push
 jobs:
     first-job:
         runs-on: ubuntu-latest
@@ -27,3 +27,12 @@ jobs:
                 python-version: 3.12
             - name: Deploy Code
               run: echo "Deploy code for model to AWS"
+
+    third-job:
+        needs: second-job
+        runs-on: ubuntu-latest
+        steps:
+            - name: Print Greelings
+              run: echo "Hello World!"
+            - name: Print Github Metadata
+              run: echo "$({ toJSON(github) })"
